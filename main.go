@@ -83,6 +83,7 @@ func main() {
 	if encoded {
 		encoding = content_encoding[0]
 	}
+	DebugSaveBinary(body)
 	decoded := Decompress(resp.Uncompressed, encoded, encoding, body)
 	DebugSaveHTML(&decoded)
 

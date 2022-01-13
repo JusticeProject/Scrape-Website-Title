@@ -26,3 +26,14 @@ func DebugSaveHTML(html *string) {
 		w.Flush()
 	}
 }
+
+// save the raw binary data to a file
+func DebugSaveBinary(data []byte) {
+	if len(debugFileName) > 0 {
+		f, _ := os.Create("test.bin")
+		defer f.Close()
+		w := bufio.NewWriter(f)
+		w.Write(data)
+		w.Flush()
+	}
+}
